@@ -31,26 +31,25 @@
                  :method method
                  :api_key key)
         secret (:secret params)
-        string-keys? (:string-keys? params false)
-        params (dissoc params :secret)
+        key-fn (:key-fn params true)
+        params (dissoc params :secret :key-fn)
         params (assoc params :api_sig (sign params secret))]
     (-> (http/request {:url *api*
                        :method http-method
                        :query-params (when (= :get http-method) params)
                        :form-params (when (= :post http-method) params)})
         (:body)
-        (json/decode (not string-keys?)))))
+        (json/decode key-fn))))
 
 (defn read
   "Execute a read-only API request. Takes a method, API token, and some parameters.
-   You can pass :string-keys? true in the param map to not convert keys to keywords.
-   This can be useful for optimization purposes."
+   You can also pass in a :key-fn param that is passed to cheshire's decode function."
   [method key & [params]]
   (req method key :get params))
 
 (defn write
   "Execute a writing API request. Takes a method, API token, and some parameters.
-   You can pass :string-keys? true in the param map to not convert keys to keywords.
-   This can be useful for optimization purposes."
+   You can also pass in a :key-fn param that is passed to cheshire's decode function."
   [method key & [params]]
   (req method key :post params))
+
