@@ -12,12 +12,8 @@
      :token token}))
 
 (defn get-session
-  "Takes an API key, secret, and either the output of get-token or the
-   token string itself. Returns a map containing :name and :key keys. To
-   authenticate requests, just pass an :sk key in params with either the
-   session key or the map returned by this function."
+  "Takes an API key, secret, and the :token key in the map returned by get-token.
+   Returns a map containing :name and :key keys. To authenticate requests, just
+   pass an :sk key in params with the :key key in the map returned by this function."
   [key secret token]
-  (:session (least/read "auth.getSession" key {:token (if (map? token)
-                                                        (:token token)
-                                                        token)
-                                               :secret secret})))
+  (least/read "auth.getSession" key {:token token :secret secret}))

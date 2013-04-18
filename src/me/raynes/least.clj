@@ -32,12 +32,7 @@
                  :api_key key)
         secret (:secret params)
         string-keys? (:string-keys? params false)
-        params (-> params
-                   (assoc :sk (when-let [sk (:sk params)]
-                                (if (map? sk)
-                                  (:key sk)
-                                  sk)))
-                   (dissoc :secret))
+        params (dissoc params :secret)
         params (assoc params :api_sig (sign params secret))]
     (-> (http/request {:url *api*
                        :method http-method

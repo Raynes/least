@@ -117,22 +117,22 @@ application. You should make him give you some indication that he has
 finished. After that, do this:
 
 ```clojure
-user> (def session (auth/get-session "REDACTED API KEY" "REDACTED SECRET" token))
+user> (def session (auth/get-session "REDACTED API KEY" "REDACTED SECRET" (:token token)))
 #'user/session
 user> session
 {:name "RaynesFM", :key "REDACTED SESSION KEY", :subscriber "0"}
 ```
 
-Boom, there you have it. Authenticated. Now you're gonna want to save either
-that whole map or just the key itself. You can pass either of them to API calls
-needing authentication along with your secret. Your secret is not necessary for
+Boom, there you have it. Authenticated. Now you're gonna want to save that API
+key. You can pass it to API calls requiring authentication along with your
+secret. Your secret is not necessary for
 API calls that do not require authentication, but it is required for ones that
 do. Here is an example. I *really* like The Phoenix, the
 song by Fall Out Boy. In fact, you could say I **love** it! Let's tell last.fm
 about this discovery:
 
 ```clojure
-user> (least/write "track.love" "REDACTED" {:secret "REDACTED" :sk session :track "The Phoenix" :artist "Fall Out Boy"})
+user> (least/write "track.love" "REDACTED" {:secret "REDACTED" :sk (:key session) :track "The Phoenix" :artist "Fall Out Boy"})
 {:status "ok"}
 ```
 
