@@ -25,13 +25,18 @@
              (join))
         secret)))
 
+(defn ^:private remove-stupid-characters [k]
+  (-> (remove #{\@ \#} k)
+      (join)
+      (keyword)))
+
 (defn ^:private req [method key http-method params]
   (let [params (assoc params
                  :format "json"
                  :method method
                  :api_key key)
         secret (:secret params)
-        key-fn (:key-fn params true)
+        key-fn (:key-fn params remove-stupid-characters)
         params (dissoc params :secret :key-fn)
         params (assoc params :api_sig (sign params secret))]
     (-> (http/request {:url *api*
