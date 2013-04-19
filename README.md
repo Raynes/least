@@ -9,7 +9,7 @@ simple helper functions for the desktop oauth flow.
 Add a dependency for least:
 
 ```clojure
-:dependencies [[me.raynes/least "0.1.2"]]
+:dependencies [[me.raynes/least "0.1.3"]]
 ```
 
 Maps have been pretty printed for readability.
@@ -28,68 +28,68 @@ user> (least/read "user.getRecentTracks" "REDACTED" {:limit 2 :user "RaynesFM"})
 {:recenttracks
  {:track
   [{:artist
-    {:#text "Fall Out Boy",
+    {:text "Fall Out Boy",
      :mbid "516cef4d-0718-4007-9939-f9b38af3f784"},
     :name "The Phoenix",
     :streamable "0",
     :mbid "36b02c04-bf13-4d65-ba48-e00dab4a7453",
     :album
-    {:#text "Save Rock And Roll",
+    {:text "Save Rock And Roll",
      :mbid "56227792-5344-41a0-ab74-ba7608b505eb"},
     :url "http://www.last.fm/music/Fall+Out+Boy/_/The+Phoenix",
     :image
-    [{:#text "http://userserve-ak.last.fm/serve/34s/87829405.png",
+    [{:text "http://userserve-ak.last.fm/serve/34s/87829405.png",
       :size "small"}
-     {:#text "http://userserve-ak.last.fm/serve/64s/87829405.png",
+     {:text "http://userserve-ak.last.fm/serve/64s/87829405.png",
       :size "medium"}
-     {:#text "http://userserve-ak.last.fm/serve/126/87829405.png",
+     {:text "http://userserve-ak.last.fm/serve/126/87829405.png",
       :size "large"}
-     {:#text "http://userserve-ak.last.fm/serve/300x300/87829405.png",
+     {:text "http://userserve-ak.last.fm/serve/300x300/87829405.png",
       :size "extralarge"}],
-    :@attr {:nowplaying "true"}}
+    :attr {:nowplaying "true"}}
    {:artist
-    {:#text "Neon Trees",
+    {:text "Neon Trees",
      :mbid "16243662-8538-4746-a0fb-0d15b5828b8e"},
     :name "Hooray for Hollywood",
     :streamable "1",
     :mbid "367ad558-478c-43dc-a175-aae826edad51",
     :album
-    {:#text "Picture Show",
+    {:text "Picture Show",
      :mbid
  "b660188a-4cef-46fa-80f4-58b8bdb4bfc9"},
     :url "http://www.last.fm/music/Neon+Trees/_/Hooray+for+Hollywood",
     :image
-    [{:#text "http://userserve-ak.last.fm/serve/34s/76690558.png",
+    [{:text "http://userserve-ak.last.fm/serve/34s/76690558.png",
       :size "small"}
-     {:#text "http://userserve-ak.last.fm/serve/64s/76690558.png",
+     {:text "http://userserve-ak.last.fm/serve/64s/76690558.png",
       :size "medium"}
-     {:#text "http://userserve-ak.last.fm/serve/126/76690558.png",
+     {:text "http://userserve-ak.last.fm/serve/126/76690558.png",
       :size "large"}
-     {:#text "http://userserve-ak.last.fm/serve/300x300/76690558.png",
+     {:text "http://userserve-ak.last.fm/serve/300x300/76690558.png",
       :size "extralarge"}],
-    :date {:#text "18 Apr 2013, 06:02", :uts "1366264961"}}
+    :date {:text "18 Apr 2013, 06:02", :uts "1366264961"}}
    {:artist
-    {:#text "Neon Trees",
+    {:text "Neon Trees",
      :mbid "16243662-8538-4746-a0fb-0d15b5828b8e"},
     :name "Close to You",
     :streamable "1",
     :mbid "e043a3d8-ce1e-4f7f-ab0e-9d99f231e93c",
     :album
-    {:#text "Picture Show",
+    {:text "Picture Show",
      :mbid "b660188a-4cef-46fa-80f4-58b8bdb4bfc9"},
     :url "http://www.last.fm/music/Neon+Trees/_/Close+to+You",
     :image
-    [{:#text "http://userserve-ak.last.fm/serve/34s/76690558.png",
+    [{:text "http://userserve-ak.last.fm/serve/34s/76690558.png",
       :size "small"}
-     {:#text "http://userserve-ak.la
+     {:text "http://userserve-ak.la
 st.fm/serve/64s/76690558.png",
       :size "medium"}
-     {:#text "http://userserve-ak.last.fm/serve/126/76690558.png",
+     {:text "http://userserve-ak.last.fm/serve/126/76690558.png",
       :size "large"}
-     {:#text "http://userserve-ak.last.fm/serve/300x300/76690558.png",
+     {:text "http://userserve-ak.last.fm/serve/300x300/76690558.png",
       :size "extralarge"}],
-    :date {:#text "18 Apr 2013, 05:57", :uts "1366264654"}}],
-  :@attr
+    :date {:text "18 Apr 2013, 05:57", :uts "1366264654"}}],
+  :attr
   {:user "RaynesFM",
    :page "1",
    :perPage "2",
