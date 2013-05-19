@@ -16,4 +16,4 @@
    Returns a map containing :name and :key keys. To authenticate requests, just
    pass an :sk key in params with the :key key in the map returned by this function."
   [key secret token]
-  (least/read "auth.getSession" key {:token token :secret secret}))
+  (:session (least/read "auth.getSession" key {:token token :secret secret})))
