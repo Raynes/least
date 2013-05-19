@@ -123,7 +123,7 @@ application. You should make him give you some indication that he has
 finished. After that, do this:
 
 ```clojure
-user> (def session (:session (auth/get-session "REDACTED API KEY" "REDACTED SECRET" (:token token))))
+user> (def session (auth/get-session "REDACTED API KEY" "REDACTED SECRET" (:token token)))
 #'user/session
 user> session
 {:name "RaynesFM", :key "REDACTED SESSION KEY", :subscriber "0"}
